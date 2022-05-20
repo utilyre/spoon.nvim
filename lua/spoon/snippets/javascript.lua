@@ -19,6 +19,8 @@ return {
   s("ci", fmt([[console.info({})]], i(1))),
   s("cd", fmt([[console.debug({})]], i(1))),
   s("ce", fmt([[console.error({})]], i(1))),
+  -- Module
+  -- TODO: Dynamic node for import name (dynamic because user should be able to change the generated name)
   s(
     "i",
     c(1, {
@@ -59,6 +61,7 @@ return {
       fmt([[module.exports = {}]], i(1)),
     })
   ),
+  -- Function
   s(
     "fun",
     c(1, {
