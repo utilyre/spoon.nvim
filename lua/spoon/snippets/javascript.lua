@@ -19,4 +19,33 @@ return {
   s("ci", fmt([[console.info({})]], i(1))),
   s("cd", fmt([[console.debug({})]], i(1))),
   s("ce", fmt([[console.error({})]], i(1))),
+  s(
+    "fun",
+    c(1, {
+      fmt(
+        [[
+    const {} = ({}) => {{
+      {}
+    }}
+    ]],
+        {
+          i(1),
+          i(2),
+          i(0),
+        }
+      ),
+      fmt(
+        [[
+      function {}({}) {{
+        {}
+      }}
+      ]],
+        {
+          i(1),
+          i(2),
+          i(0),
+        }
+      ),
+    })
+  ),
 }
