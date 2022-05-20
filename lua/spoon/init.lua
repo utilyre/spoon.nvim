@@ -6,11 +6,11 @@ local defaults = require("spoon.defaults")
 local snippets = require("spoon.snippets")
 
 M.setup = function(opts)
-  -- Merges the given opts with default opts (prefers theirs)
   if opts == nil then
     opts = {}
   end
 
+  -- Merges the given opts with default opts (prefers theirs)
   for key, value in pairs(defaults.opts) do
     if opts[key] == nil then
       opts[key] = value
