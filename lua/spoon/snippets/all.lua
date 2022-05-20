@@ -17,7 +17,7 @@ local lambda = require("luasnip.extras").l
 return {
   s(
     "time",
-    f(function(args)
+    f(function()
       local date = vim.fn.strftime("%m/%d/%G %H:%M")
       return date
     end, {})
