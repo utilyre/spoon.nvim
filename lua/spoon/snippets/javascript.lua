@@ -20,6 +20,46 @@ return {
   s("cd", fmt([[console.debug({})]], i(1))),
   s("ce", fmt([[console.error({})]], i(1))),
   s(
+    "i",
+    c(1, {
+      fmt([[import {{ {} }} from '{}']], {
+        i(2),
+        i(1),
+      }),
+      fmt([[const {{ {} }} = require('{}')]], {
+        i(2),
+        i(1),
+      }),
+    })
+  ),
+  s(
+    "id",
+    c(1, {
+      fmt([[import {} from '{}']], {
+        i(2, "{}"),
+        i(1),
+      }),
+      fmt([[const {} = require('{}')]], {
+        i(2, "{}"),
+        i(1),
+      }),
+    })
+  ),
+  s(
+    "e",
+    c(1, {
+      fmt([[export {}]], i(1)),
+      fmt([[module.exports = {{ {} }}]], i(1)),
+    })
+  ),
+  s(
+    "ed",
+    c(1, {
+      fmt([[export default {}]], i(1)),
+      fmt([[module.exports = {}]], i(1)),
+    })
+  ),
+  s(
     "fun",
     c(1, {
       fmt(
