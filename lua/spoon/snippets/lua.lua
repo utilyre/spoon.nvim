@@ -15,6 +15,7 @@ local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 
 return {
+  -- Module
   s(
     "req",
     fmt([[local {} = require("{}")]], {
@@ -25,5 +26,18 @@ return {
       end, { 1 }),
       i(1, "module"),
     })
+  ),
+  s(
+    "m",
+    fmt(
+      [[
+      local M = {{}}
+
+      M.{}
+
+      return M
+      ]],
+      i(0)
+    )
   ),
 }
