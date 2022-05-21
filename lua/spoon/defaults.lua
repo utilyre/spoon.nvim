@@ -1,6 +1,7 @@
 local M = {}
 
 M.opts = {
+  preferSingleQuotes = true,
   langs = {
     all = true,
     lua = true,

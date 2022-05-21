@@ -14,11 +14,14 @@ local fmt = require("luasnip.extras.fmt").fmt
 local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 
+local cfg = vim.g.spoon_config
+local quote = cfg.preferSingleQuotes and "'" or '"'
+
 return {
   -- Module
   s(
     "req",
-    fmt([[local {} = require("{}")]], {
+    fmt("local {} = require(" .. quote .. "{}" .. quote .. ")", {
       f(function(args)
         local module = args[1][1] or ""
         local parts = vim.split(module, ".", { plain = true })

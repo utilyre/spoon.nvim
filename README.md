@@ -59,7 +59,7 @@ spoon.setup({
 
 ## TODO
 
-* [ ] An option to either use single quotes or double quotes in snippets
+* [x] An option to either use single quotes or double quotes in snippets
 * [ ] Language specific configuration
 
 **Note:** There are so many languages out there and I'm no expert in those, so

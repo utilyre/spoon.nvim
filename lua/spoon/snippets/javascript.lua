@@ -14,6 +14,9 @@ local fmt = require("luasnip.extras.fmt").fmt
 local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 
+local cfg = vim.g.spoon_config
+local quote = cfg.preferSingleQuotes and "'" or '"'
+
 return {
   s("cl", fmt([[console.log({})]], i(1))),
   s("ci", fmt([[console.info({})]], i(1))),
@@ -24,11 +27,11 @@ return {
   s(
     "i",
     c(1, {
-      fmt([[import {{ {} }} from '{}']], {
+      fmt("import {{ {} }} from " .. quote .. "{}" .. quote, {
         i(2),
         i(1),
       }),
-      fmt([[const {{ {} }} = require('{}')]], {
+      fmt("const {{ {} }} = require(" .. quote .. "{}" .. quote .. ")", {
         i(2),
         i(1),
       }),
@@ -37,11 +40,11 @@ return {
   s(
     "id",
     c(1, {
-      fmt([[import {} from '{}']], {
+      fmt("import {} from " .. quote .. "{}" .. quote, {
         i(2, "{}"),
         i(1),
       }),
-      fmt([[const {} = require('{}')]], {
+      fmt("const {} = require(" .. quote .. "{}" .. quote .. ")", {
         i(2, "{}"),
         i(1),
       }),
