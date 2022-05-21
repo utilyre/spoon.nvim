@@ -18,10 +18,10 @@ local cfg = vim.g.spoon_config
 local quote = cfg.preferSingleQuotes and "'" or '"'
 
 return {
-  s("cl", fmt([[console.log({})]], i(1))),
-  s("ci", fmt([[console.info({})]], i(1))),
-  s("cd", fmt([[console.debug({})]], i(1))),
-  s("ce", fmt([[console.error({})]], i(1))),
+  s("cl", fmt("console.log({})", i(1))),
+  s("ci", fmt("console.info({})", i(1))),
+  s("cd", fmt("console.debug({})", i(1))),
+  s("ce", fmt("console.error({})", i(1))),
   -- Module
   -- TODO: Dynamic node for import name (dynamic because user should be able to change the generated name)
   s(
@@ -53,15 +53,15 @@ return {
   s(
     "e",
     c(1, {
-      fmt([[export {}]], i(1)),
-      fmt([[module.exports = {{ {} }}]], i(1)),
+      fmt("export {}", i(1)),
+      fmt("module.exports = {{ {} }}", i(1)),
     })
   ),
   s(
     "ed",
     c(1, {
-      fmt([[export default {}]], i(1)),
-      fmt([[module.exports = {}]], i(1)),
+      fmt("export default {}", i(1)),
+      fmt("module.exports = {}", i(1)),
     })
   ),
   -- Function
