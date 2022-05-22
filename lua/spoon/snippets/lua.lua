@@ -21,6 +21,10 @@ return {
   -- Module
   s(
     "req",
+    fmt("require(" .. quote .. "{}" .. quote.. ")", i(1, "module"))
+  ),
+  s(
+    "lreq",
     fmt("local {} = require(" .. quote .. "{}" .. quote .. ")", {
       f(function(args)
         local module = args[1][1] or ""
