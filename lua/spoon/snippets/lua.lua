@@ -19,10 +19,7 @@ local quote = cfg.preferSingleQuotes and "'" or '"'
 
 return {
   -- Module
-  s(
-    "req",
-    fmt("require(" .. quote .. "{}" .. quote.. ")", i(1, "module"))
-  ),
+  s("req", fmt("require(" .. quote .. "{}" .. quote .. ")", i(1, "module"))),
   s(
     "lreq",
     fmt("local {} = require(" .. quote .. "{}" .. quote .. ")", {
