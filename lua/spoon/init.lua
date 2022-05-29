@@ -10,6 +10,7 @@ M.setup = function(opts)
   end
 
   -- Merges the given opts with default opts (prefers theirs)
+  -- TODO: Use vim.tbl_deep_extend
   local cfg = opts
   for key, value in pairs(defaults.opts) do
     if cfg[key] == nil then
