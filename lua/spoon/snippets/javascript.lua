@@ -25,7 +25,7 @@ return {
   -- Module
   -- TODO: Dynamic node for import name (dynamic because user should be able to change the generated name)
   s(
-    "i",
+    "im",
     c(1, {
       fmt("import {{ {} }} from " .. quote .. "{}" .. quote, {
         i(2),
@@ -38,7 +38,7 @@ return {
     })
   ),
   s(
-    "id",
+    "imd",
     c(1, {
       fmt("import {} from " .. quote .. "{}" .. quote, {
         i(2, "{}"),
@@ -51,14 +51,14 @@ return {
     })
   ),
   s(
-    "e",
+    "ex",
     c(1, {
       fmt("export {}", i(1)),
       fmt("module.exports = {{ {} }}", i(1)),
     })
   ),
   s(
-    "ed",
+    "exd",
     c(1, {
       fmt("export default {}", i(1)),
       fmt("module.exports = {}", i(1)),
@@ -124,7 +124,7 @@ return {
     })
   ),
   s(
-    "efun",
+    "fune",
     c(1, {
       fmt(
         [[
@@ -151,7 +151,7 @@ return {
     })
   ),
   s(
-    "aefun",
+    "afune",
     c(1, {
       fmt(
         [[
