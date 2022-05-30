@@ -8,6 +8,7 @@ M.opts = {
     lua = true,
     -- TODO: preferCommonJs (defaults to false)
     javascript = true,
+    javascriptreact = true,
   },
 }
 
