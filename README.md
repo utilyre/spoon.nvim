@@ -24,6 +24,7 @@ snippet collection ever!
 * General Snippets aka `all` (available everywhere)
 * Lua
 * JavaScript
+* JavaScript React
 
 ## Installation
 
