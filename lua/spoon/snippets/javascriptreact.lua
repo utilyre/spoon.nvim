@@ -54,4 +54,15 @@ return {
       }
     )
   ),
+
+  s(
+    "state",
+    fmt("const [{}, {}] = useState({})", {
+      i(1, "state"),
+      f(function(args)
+        return "set" .. args[1][1]:gsub("^%l", string.upper)
+      end, 1),
+      i(2),
+    })
+  ),
 }
