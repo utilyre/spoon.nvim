@@ -20,9 +20,6 @@ local hos = require("spoon.hos")
 local javascript = require("spoon.snippets.javascript")
 
 return {
-  -- Loads all javascript snippets
-  unpack(javascript),
-
   s(
     "rc",
     fmt(
@@ -80,4 +77,7 @@ return {
       }
     )
   ),
+
+  -- Loads all javascript snippets
+  unpack(javascript),
 }
