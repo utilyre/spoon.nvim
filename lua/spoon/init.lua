@@ -10,20 +10,14 @@ M.setup = function(opts)
   end
 
   -- Merges the given opts with default opts (prefers theirs)
-  -- TODO: Use vim.tbl_deep_extend
-  local cfg = opts
-  for key, value in pairs(defaults.opts) do
-    if cfg[key] == nil then
-      cfg[key] = value
-    end
-  end
+  opts = vim.tbl_deep_extend("force", defaults.opts, opts)
 
   -- Make cfg global so it will be accessible in snippets
-  vim.g.spoon_config = cfg
+  vim.g.spoon_config = opts
   local snippets = require("spoon.snippets")
 
   -- Adds enabled languages' snippets
-  for lang, enable in pairs(cfg.langs) do
+  for lang, enable in pairs(opts.langs) do
     if enable then
       ls.add_snippets(lang, snippets[lang])
     end
