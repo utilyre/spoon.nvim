@@ -56,6 +56,7 @@ spoon.setup({
     lua = true,
     javascript = true,
     javascriptreact = true,
+  },
 })
 ```
 
