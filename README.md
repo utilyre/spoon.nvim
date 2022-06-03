@@ -50,11 +50,12 @@ use {
 local spoon = require("spoon.nvim")
 
 spoon.setup({
+  preferSingleQuotes = true,
   langs = {
     all = true,
     lua = true,
     javascript = true,
-  },
+    javascriptreact = true,
 })
 ```
 
