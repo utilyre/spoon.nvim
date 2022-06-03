@@ -16,9 +16,42 @@ local lambda = require("luasnip.extras").l
 
 local cfg = vim.g.spoon_config
 local quote = cfg.preferSingleQuotes and "'" or '"'
+local hos = require("spoon.hos")
 local javascript = require("spoon.snippets.javascript")
 
 return {
   -- Loads all javascript snippets
   unpack(javascript),
+
+  s(
+    "rc",
+    fmt(
+      [[
+      const {} = ({}{}{}) => {{
+        {}
+
+        return (
+          <div>
+            {}
+          </div>
+        )
+      }}
+
+      export default {}
+      ]],
+      {
+        i(1, vim.fn.expand("%:t:r")),
+        f(function(args)
+          return args[1][1] == "" and "" or "{ "
+        end, 2),
+        i(2),
+        f(function(args)
+          return args[1][1] == "" and "" or " }"
+        end, 2),
+        i(0),
+        hos.same(1),
+        hos.same(1),
+      }
+    )
+  ),
 }
