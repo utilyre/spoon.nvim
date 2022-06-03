@@ -10,7 +10,7 @@ M.setup = function(opts)
   end
 
   -- Merges the given opts with default opts (prefers theirs)
-  opts = vim.tbl_deep_extend("force", defaults.opts, opts)
+  opts = vim.tbl_deep_extend("force", defaults, opts)
 
   -- Make cfg global so it will be accessible in snippets
   vim.g.spoon_config = opts

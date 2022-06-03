@@ -1,7 +1,5 @@
-local M = {}
-
 -- TODO: Language specific options
-M.opts = {
+return {
   preferSingleQuotes = true,
   langs = {
     all = true,
@@ -11,5 +9,3 @@ M.opts = {
     javascriptreact = true,
   },
 }
-
-return M
