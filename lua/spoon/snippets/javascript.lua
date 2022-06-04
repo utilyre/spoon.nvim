@@ -18,163 +18,93 @@ local cfg = vim.g.spoon_config
 local quote = cfg.preferSingleQuotes and "'" or '"'
 
 return {
+  --- CONSOLE ---
   s("cl", fmt("console.log({})", i(1))),
   s("ci", fmt("console.info({})", i(1))),
   s("cd", fmt("console.debug({})", i(1))),
   s("ce", fmt("console.error({})", i(1))),
-  -- Module
+
+  --- MODULE ---
   -- TODO: Dynamic node for import name (dynamic because user should be able to change the generated name)
   s(
     "im",
-    c(1, {
-      fmt("import {{ {} }} from " .. quote .. "{}" .. quote, {
-        i(2),
-        i(1),
-      }),
-      fmt("const {{ {} }} = require(" .. quote .. "{}" .. quote .. ")", {
-        i(2),
-        i(1),
-      }),
+    fmt("import {{ {} }} from " .. quote .. "{}" .. quote, {
+      i(2),
+      i(1),
     })
   ),
+
   s(
     "imd",
-    c(1, {
-      fmt("import {} from " .. quote .. "{}" .. quote, {
-        i(2, "{}"),
-        i(1),
-      }),
-      fmt("const {} = require(" .. quote .. "{}" .. quote .. ")", {
-        i(2, "{}"),
-        i(1),
-      }),
+    fmt("import {} from " .. quote .. "{}" .. quote, {
+      i(2, "{}"),
+      i(1),
     })
   ),
-  s(
-    "ex",
-    c(1, {
-      fmt("export {}", i(1)),
-      fmt("module.exports = {{ {} }}", i(1)),
-    })
-  ),
-  s(
-    "exd",
-    c(1, {
-      fmt("export default {}", i(1)),
-      fmt("module.exports = {}", i(1)),
-    })
-  ),
-  -- Function
+
+  s("ex", t("export")),
+  s("exd", t("export default")),
+
+  --- FUNCTION ---
   s(
     "fun",
-    c(1, {
-      fmt(
-        [[
-        const {} = ({}) => {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(2),
-          i(0),
-        }
-      ),
-      fmt(
-        [[
-        function {}({}) {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(2),
-          i(0),
-        }
-      ),
-    })
+    fmt(
+      [[
+      const {} = ({}) => {{
+        {}
+      }}
+      ]],
+      {
+        i(1),
+        i(2),
+        i(0),
+      }
+    )
   ),
+
   s(
     "afun",
-    c(1, {
-      fmt(
-        [[
-        const {} = async ({}) => {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(2),
-          i(0),
-        }
-      ),
-      fmt(
-        [[
-        async function {}({}) {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(2),
-          i(0),
-        }
-      ),
-    })
+    fmt(
+      [[
+      const {} = async ({}) => {{
+        {}
+      }}
+      ]],
+      {
+        i(1),
+        i(2),
+        i(0),
+      }
+    )
   ),
+
   s(
     "fune",
-    c(1, {
-      fmt(
-        [[
-        ({}) = {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(0),
-        }
-      ),
-      fmt(
-        [[
-        function({}) {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(0),
-        }
-      ),
-    })
+    fmt(
+      [[
+      ({}) => {{
+        {}
+      }}
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    )
   ),
+
   s(
     "afune",
-    c(1, {
-      fmt(
-        [[
-        async ({}) => {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(0),
-        }
-      ),
-      fmt(
-        [[
-        async function({}) {{
-          {}
-        }}
-        ]],
-        {
-          i(1),
-          i(0),
-        }
-      ),
-    })
+    fmt(
+      [[
+      async ({}) => {{
+        {}
+      }}
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    )
   ),
 }
