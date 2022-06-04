@@ -25,7 +25,6 @@ return {
   s("ce", fmt("console.error({})", i(1))),
 
   --- MODULE ---
-  -- TODO: Dynamic node for import name (dynamic because user should be able to change the generated name)
   s(
     "im",
     fmt("import {{ {} }} from " .. quote .. "{}" .. quote, {
@@ -37,7 +36,16 @@ return {
   s(
     "imd",
     fmt("import {} from " .. quote .. "{}" .. quote, {
-      i(2, "{}"),
+      d(2, function(args)
+          local name = "{}"
+
+          local parts = vim.split(args[1][1], "/")
+          if parts[#parts] ~= "" then
+            name = parts[#parts]
+          end
+
+          return sn(nil, i(1, name))
+        end, 1),
       i(1),
     })
   ),
