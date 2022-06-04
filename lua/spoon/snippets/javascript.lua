@@ -50,8 +50,8 @@ return {
     })
   ),
 
-  s("ex", t("export")),
-  s("exd", t("export default")),
+  s("ex", t("export ")),
+  s("exd", t("export default ")),
 
   --- FUNCTION ---
   s(
