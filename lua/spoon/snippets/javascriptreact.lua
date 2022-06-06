@@ -57,6 +57,31 @@ return {
 
   s(
     {
+      trig = "rh",
+      name = "React Hook",
+    },
+    fmt(
+      [[
+      const {} = ({}) => {{
+        {}
+
+        return {}
+      }}
+      ]],
+      {
+        i(1, vim.fn.expand("%:t:r")),
+        i(2),
+        i(0),
+        c(3, {
+          fmt("[{}]", i(1)),
+          fmt("{{ {} }}", i(1)),
+        }),
+      }
+    )
+  ),
+
+  s(
+    {
       trig = "state",
       name = "React useState",
     },
