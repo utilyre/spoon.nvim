@@ -36,4 +36,11 @@ M.time = function(format)
   end)
 end
 
+---InsertNode that defaults to current filename
+---@param no number
+---@return table
+M.ifilename = function(no)
+  return i(no, vim.fn.expand("%:t:r"))
+end
+
 return M

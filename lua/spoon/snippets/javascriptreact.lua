@@ -40,7 +40,7 @@ return {
       export default {}
       ]],
       {
-        i(1, vim.fn.expand("%:t:r")),
+        hos.ifilename(1),
         f(function(args)
           return args[1][1] == "" and "" or "{ "
         end, 2),
@@ -69,7 +69,7 @@ return {
       }}
       ]],
       {
-        i(1, vim.fn.expand("%:t:r")),
+        hos.ifilename(1),
         i(2),
         i(0),
         c(3, {
