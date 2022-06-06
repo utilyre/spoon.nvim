@@ -18,7 +18,7 @@ local M = {}
 
 ---Has the same text as the given node
 ---@param node table
----@return table
+---@return table function_node
 M.same = function(node)
   return f(function(args)
     local text = args[1][1] or ""
@@ -28,7 +28,7 @@ end
 
 ---Inserts current time
 ---@param format string
----@return table
+---@return table function_node
 M.time = function(format)
   return f(function()
     local date = vim.fn.strftime(format)
@@ -38,7 +38,7 @@ end
 
 ---InsertNode that defaults to current filename
 ---@param no number
----@return table
+---@return table insert_node
 M.ifilename = function(no)
   return i(no, vim.fn.expand("%:t:r"))
 end
