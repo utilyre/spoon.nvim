@@ -21,7 +21,10 @@ local javascript = require("spoon.snippets.javascript")
 
 return {
   s(
-    "rc",
+    {
+      trig = "rc",
+      name = "React Component",
+    },
     fmt(
       [[
       const {} = ({}{}{}) => {{
@@ -53,7 +56,10 @@ return {
   ),
 
   s(
-    "state",
+    {
+      trig = "state",
+      name = "React useState",
+    },
     fmt("const [{}, {}] = useState({})", {
       i(1, "state"),
       f(function(args)
@@ -64,7 +70,10 @@ return {
   ),
 
   s(
-    "effect",
+    {
+      trig = "effect",
+      name = "React useEffect",
+    },
     fmt(
       [[
       useEffect(() => {{

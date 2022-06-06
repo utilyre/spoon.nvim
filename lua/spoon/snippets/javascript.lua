@@ -19,14 +19,32 @@ local quote = cfg.preferSingleQuotes and "'" or '"'
 
 return {
   --- CONSOLE ---
-  s("cl", fmt("console.log({})", i(1))),
-  s("ci", fmt("console.info({})", i(1))),
-  s("cd", fmt("console.debug({})", i(1))),
-  s("ce", fmt("console.error({})", i(1))),
+  s({
+    trig = "cl",
+    name = "Console Log",
+  }, fmt("console.log({})", i(1))),
+
+  s({
+    trig = "ci",
+    name = "Console Info",
+  }, fmt("console.info({})", i(1))),
+
+  s({
+    trig = "cd",
+    name = "Console Debug",
+  }, fmt("console.debug({})", i(1))),
+
+  s({
+    trig = "ce",
+    name = "Console Error",
+  }, fmt("console.error({})", i(1))),
 
   --- MODULE ---
   s(
-    "im",
+    {
+      trig = "im",
+      name = "Import",
+    },
     fmt("import {{ {} }} from " .. quote .. "{}" .. quote, {
       i(2),
       i(1),
@@ -34,7 +52,10 @@ return {
   ),
 
   s(
-    "imd",
+    {
+      trig = "imd",
+      name = "Import Default",
+    },
     fmt("import {} from " .. quote .. "{}" .. quote, {
       d(2, function(args)
           local name = "{}"
@@ -50,12 +71,22 @@ return {
     })
   ),
 
-  s("ex", t("export ")),
-  s("exd", t("export default ")),
+  s({
+    trig = "ex",
+    name = "Export",
+  }, t("export ")),
+
+  s({
+    trig = "exd",
+    name = "Export Default",
+  }, t("export default ")),
 
   --- FUNCTION ---
   s(
-    "fun",
+    {
+      trig = "fun",
+      name = "Function",
+    },
     fmt(
       [[
       const {} = ({}) => {{
@@ -71,7 +102,10 @@ return {
   ),
 
   s(
-    "afun",
+    {
+      trig = "afun",
+      name = "Async Function",
+    },
     fmt(
       [[
       const {} = async ({}) => {{
@@ -87,7 +121,10 @@ return {
   ),
 
   s(
-    "fune",
+    {
+      trig = "fune",
+      name = "Function Expression",
+    },
     fmt(
       [[
       ({}) => {{
@@ -102,7 +139,10 @@ return {
   ),
 
   s(
-    "afune",
+    {
+      trig = "afune",
+      name = "Async Function Expression",
+    },
     fmt(
       [[
       async ({}) => {{

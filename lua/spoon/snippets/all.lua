@@ -17,5 +17,8 @@ local lambda = require("luasnip.extras").l
 local hos = require("spoon.hos")
 
 return {
-  s("time", hos.time("%m/%d/%G %H:%M")),
+  s({
+    trig = "time",
+    name = "Time",
+  }, hos.time("%m/%d/%G %H:%M")),
 }

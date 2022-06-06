@@ -18,10 +18,17 @@ local cfg = vim.g.spoon_config
 local quote = cfg.preferSingleQuotes and "'" or '"'
 
 return {
-  -- Module
-  s("req", fmt("require(" .. quote .. "{}" .. quote .. ")", i(1, "module"))),
+  --- MODULE ---
+  s({
+    trig = "req",
+    name = "Require",
+  }, fmt("require(" .. quote .. "{}" .. quote .. ")", i(1, "module"))),
+
   s(
-    "lreq",
+    {
+      trig = "lreq",
+      name = "Local Require",
+    },
     fmt("local {} = require(" .. quote .. "{}" .. quote .. ")", {
       f(function(args)
         local module = args[1][1] or ""
@@ -31,8 +38,12 @@ return {
       i(1, "module"),
     })
   ),
+
   s(
-    "m",
+    {
+      trig = "m",
+      name = "Module",
+    },
     fmt(
       [[
       local M = {{}}
