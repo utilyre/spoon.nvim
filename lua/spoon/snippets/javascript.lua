@@ -58,15 +58,15 @@ return {
     },
     fmt("import {} from " .. quote .. "{}" .. quote, {
       d(2, function(args)
-          local name = "{}"
+        local name = "{}"
 
-          local parts = vim.split(args[1][1], "/")
-          if parts[#parts] ~= "" then
-            name = parts[#parts]
-          end
+        local parts = vim.split(args[1][1], "/")
+        if parts[#parts] ~= "" then
+          name = parts[#parts]
+        end
 
-          return sn(nil, i(1, name))
-        end, 1),
+        return sn(nil, i(1, name))
+      end, 1),
       i(1),
     })
   ),
