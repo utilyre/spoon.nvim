@@ -30,12 +30,17 @@ return {
       name = "Local Require",
     },
     fmt("local {} = require(" .. quote .. "{}" .. quote .. ")", {
-      f(function(args)
-        local module = args[1][1] or ""
-        local parts = vim.split(module, ".", { plain = true })
-        return parts[#parts]
-      end, { 1 }),
-      i(1, "module"),
+      d(2, function(args)
+        local name = "module"
+
+        local parts = vim.split(args[1][1], ".", { plain = true })
+        if parts[#parts] ~= "" then
+          name = parts[#parts]
+        end
+
+        return sn(nil, i(1, name))
+      end, 1),
+      i(1),
     })
   ),
 
