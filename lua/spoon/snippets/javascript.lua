@@ -58,7 +58,7 @@ return {
     },
     fmt("import {} from " .. quote .. "{}" .. quote, {
       d(2, function(args)
-        local name = "{}"
+        local name = "_"
 
         local parts = vim.split(args[1][1], "/")
         if parts[#parts] ~= "" then
@@ -94,7 +94,7 @@ return {
       }}
       ]],
       {
-        i(1),
+        i(1, "_"),
         i(2),
         i(0),
       }
@@ -113,7 +113,7 @@ return {
       }}
       ]],
       {
-        i(1),
+        i(1, "_"),
         i(2),
         i(0),
       }

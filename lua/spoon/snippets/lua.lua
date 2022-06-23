@@ -31,7 +31,7 @@ return {
     },
     fmt("local {} = require(" .. quote .. "{}" .. quote .. ")", {
       d(2, function(args)
-        local name = "module"
+        local name = "_"
 
         local parts = vim.split(args[1][1], ".", { plain = true })
         if parts[#parts] ~= "" then
